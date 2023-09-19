@@ -1,0 +1,4 @@
+El ID de proceso del programa es: 290130
+Comando: echo "hola"->Exit code: 0
+Cantidad de comandos ejecutados: 1
+-----------------------------------------------------------

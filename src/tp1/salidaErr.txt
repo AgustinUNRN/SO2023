@@ -1,0 +1,1 @@
+Señal INT recibida, se ejecutaron 1 comandos: [echo "hola"]
