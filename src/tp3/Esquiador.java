@@ -16,14 +16,15 @@ class Esquiador extends Thread {
 			while (true) {
 				// Espera una silla disponible
 				sillasSemaphore.acquire(); // wait
-				System.out.println("Esquiador " + id + " toma una silla.");
+				System.out.println("El esquiador " + id + " se sube a la aerosilla en la base");
 				Thread.sleep(1000); // Simulación de tiempo en el ascenso de la silla
 				// Libera la silla en la cima
-				System.out.println("Esquiador " + id + " libera la silla en la cima.");
+				System.out.println(
+						"El esquiador " + id + " se baja de la aerosilla en la cima. Empieza a descender por la montaña");
 				sillasSemaphore.release(); // signal
 				// Esquia de regreso a la base
 				Thread.sleep(1000); // Simulación de tiempo en el descenso del esquiador
-				System.out.println("Esquiador " + id + " descendió por la montaña");
+				System.out.println("El esquiador " + id + " descendió hasta la base. Está listo para volver a subir");
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
