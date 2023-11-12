@@ -1,4 +1,4 @@
-package tp3Entregable;
+package tp3;
 
 import java.util.concurrent.locks.*;
 

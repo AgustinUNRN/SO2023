@@ -1,4 +1,4 @@
-package tp3;
+package tp3Entregable;
 
 import java.util.concurrent.Semaphore;
 
@@ -9,7 +9,7 @@ public class CentroInvernalSki {
 		Semaphore sillasSemaphore = new Semaphore(capacidadSillas);
 
 		for (int i = 1; i <= numEsquiadores; i++) {
-			new Esquiador(i, sillasSemaphore).start();
+			new Esquiadorr(i, sillasSemaphore).start();
 		}
 	}
 }

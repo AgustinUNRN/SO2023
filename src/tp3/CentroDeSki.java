@@ -1,4 +1,4 @@
-package tp3Entregable;
+package tp3;
 
 public class CentroDeSki {
 	public static void main(String[] args) {
