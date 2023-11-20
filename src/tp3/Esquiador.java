@@ -1,23 +1,28 @@
 package tp3;
 
-class Esquiador extends Thread {
-    private int esquiadorId;
-    private AerosillaMonitor aerosilla;
+import java.util.concurrent.Semaphore;
 
-    public Esquiador(int esquiadorId, AerosillaMonitor aerosilla) {
-        this.esquiadorId = esquiadorId;
-        this.aerosilla = aerosilla;
-    }
+class Esquiador implements Runnable {
+	private int id;
+	private Semaphore sillaFree;
+	private Semaphore skierSit;
 
-    public void run() {
-        while (true) {
-            try {
-                aerosilla.subirAerosilla(esquiadorId);
-                // Simular esquí
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
+	public Esquiador(int id, Semaphore sillaFree, Semaphore skierSit) {
+		this.id = id;
+		this.sillaFree = sillaFree;
+		this.skierSit = skierSit;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Está haciendo la fila el esquiador: " + id);
+		try {
+			sillaFree.acquire(); // bloquea un lugar en la silla
+			System.out.println("El esquiador " + id + " se sienta en la silla");
+			Thread.sleep(3000); // simula el tiempo en sentarse
+			skierSit.release(); // se sienta
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
