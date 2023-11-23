@@ -1,4 +1,4 @@
-package tp3;
+package tp3Entregable;
 
 import java.util.concurrent.Semaphore;
 
